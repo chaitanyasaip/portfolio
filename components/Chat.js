@@ -17,10 +17,11 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Badge,
+  Tooltip,
 } from '@chakra-ui/react';
 import { IoSend } from 'react-icons/io5';
 import { FaRobot, FaTimes } from 'react-icons/fa';
-// import { MdRefresh } from 'react-icons/md'; // MdRefresh is not used
+import { ChatIcon } from "@chakra-ui/icons";
 import Message from './Message';
 import TypingIndicator from './TypingIndicator';
 
@@ -121,23 +122,27 @@ export default function Chat() {
 
   return (
     <>
-      {/* Chat Toggle Button */}
-      <IconButton
-        icon={isOpen ? <FaTimes /> : <FaRobot />}
-        onClick={isOpen ? onClose : onOpen}
-        position="fixed"
-        bottom="20px"
-        right="20px"
-        size="lg"
-        colorScheme="blue"
-        isRound
-        aria-label="Toggle Chat"
-        boxShadow="lg"
-        _hover={{
-          transform: 'scale(1.1)',
-          transition: 'transform 0.2s'
-        }}
-      />
+      {/* Floating Chat Button with Tooltip */}
+      <Tooltip 
+        label="Ask my AI assistant about my work (Powered by Graph RAG)"
+        aria-label="Chatbot tooltip" 
+        placement="left" 
+        hasArrow
+      >
+        <IconButton
+          icon={<ChatIcon />}
+          isRound={true}
+          size="lg"
+          colorScheme="blue"
+          position="fixed"
+          bottom="40px"
+          right="40px"
+          onClick={onOpen}
+          aria-label="Open Chat"
+          boxShadow="lg"
+          zIndex={1100} // Ensure button is above other content but below drawer maybe
+        />
+      </Tooltip>
 
       {/* Chat Drawer */}
       <Drawer

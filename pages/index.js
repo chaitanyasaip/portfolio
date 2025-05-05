@@ -9,10 +9,12 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Chat from "../components/Chat";
 import BlurSection from "../components/BlurSection";
-import ParticleBackground from '../components/ParticleBackground';
+import ConstellationBackground from '../components/ConstellationBackground';
+import AnimatedSection from '../components/AnimatedSection';
 
 export default function Home() {
-    const [activeSection, setActiveSection] = useState('about'); // Default to about
+    // Initialize activeSection to null for default unblurred state
+    const [activeSection, setActiveSection] = useState(null);
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
@@ -38,8 +40,8 @@ export default function Home() {
     }
     
     return (
-      <Box position="relative" minHeight="100vh">
-          <ParticleBackground />
+      <Box>
+          <ConstellationBackground />
           <Container maxW="container.lg" py={10} px={6} position="relative" zIndex={1}>
               {/* Remove profile Box as it's not requested and might interfere */}
               {/* <Box textAlign="center" mb={6}>
@@ -58,29 +60,37 @@ export default function Home() {
               
               {/* Use Box with pt to account for sticky navbar height, adjust value as needed */}
               <Box pt="80px"> 
-                <Box id="about-section" mb={12}> {/* Added ID and margin */} 
-                  <BlurSection sectionId="about" activeSection={activeSection}>
-                    <About />
-                  </BlurSection>
-                </Box>
+                <AnimatedSection delay={0.1}>
+                  <Box id="about-section" mb={12}> {/* Added ID and margin */} 
+                    <BlurSection sectionId="about" activeSection={activeSection}>
+                      <About />
+                    </BlurSection>
+                  </Box>
+                </AnimatedSection>
 
-                <Box id="skills-section" mb={12}> {/* Added ID and margin */}
-                  <BlurSection sectionId="skills" activeSection={activeSection}>
-                    <Skills />
-                  </BlurSection>
-                </Box>
+                <AnimatedSection delay={0.2}>
+                  <Box id="skills-section" mb={12}> {/* Added ID and margin */}
+                    <BlurSection sectionId="skills" activeSection={activeSection}>
+                      <Skills />
+                    </BlurSection>
+                  </Box>
+                </AnimatedSection>
 
-                <Box id="experience-section" mb={12}> {/* Added ID and margin */}
-                  <BlurSection sectionId="experience" activeSection={activeSection}>
-                    <Experience />
-                  </BlurSection>
-                </Box>
+                <AnimatedSection delay={0.3}>
+                  <Box id="experience-section" mb={12}> {/* Added ID and margin */}
+                    <BlurSection sectionId="experience" activeSection={activeSection}>
+                      <Experience />
+                    </BlurSection>
+                  </Box>
+                </AnimatedSection>
 
-                <Box id="projects-section" mb={12}> {/* Added ID and margin */}
-                  <BlurSection sectionId="projects" activeSection={activeSection}>
-                    <Projects />
-                  </BlurSection>
-                </Box>
+                <AnimatedSection delay={0.4}>
+                  <Box id="projects-section" mb={12}> {/* Added ID and margin */}
+                    <BlurSection sectionId="projects" activeSection={activeSection}>
+                      <Projects />
+                    </BlurSection>
+                  </Box>
+                </AnimatedSection>
 
                 {/* Chat section is handled by the floating button/drawer, remove from main flow */}
                 {/* <Box id="chat-section" mb={12}>
@@ -89,14 +99,18 @@ export default function Home() {
                   </BlurSection>
                 </Box> */}
 
-                <Box id="contact-section"> {/* Added ID, removed mb */} 
-                  <BlurSection sectionId="contact" activeSection={activeSection}>
-                    <Contact />
-                  </BlurSection>
-                </Box>
+                <AnimatedSection delay={0.5}>
+                  <Box id="contact-section" mb={12}> {/* Added margin back */} 
+                    <BlurSection sectionId="contact" activeSection={activeSection}>
+                      <Contact />
+                    </BlurSection>
+                  </Box>
+                </AnimatedSection>
               </Box>
               
-              <Footer />
+              <AnimatedSection delay={0.6}>
+                <Footer />
+              </AnimatedSection>
           </Container>
           {/* Render Chat outside the main container so it's always accessible */}
           <Chat /> 

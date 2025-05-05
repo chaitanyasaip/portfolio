@@ -78,7 +78,7 @@ export default function Navbar({ setActiveSection, scrollToSection }) {
 
                 {/* Left Side: Name Link (Desktop) */}
                 <Box display={{ base: 'none', md: 'block' }}>
-                   <NavLink onClick={() => scrollToSection('about-section', false)} fontWeight="bold">Sai Chaitanya</NavLink>
+                   <NavLink onClick={() => scrollToSection('about-section', false)} fontWeight="bold">Sai Chaitanya Pachipulusu</NavLink>
                 </Box>
 
                 {/* Right Side: Navigation Links (Desktop) */}
@@ -117,7 +117,7 @@ export default function Navbar({ setActiveSection, scrollToSection }) {
                             }}
                             fontWeight="bold"
                          >
-                            Sai Chaitanya
+                            Sai Chaitanya Pachipulusu
                          </NavLink>
                         {Links.map((link) => (
                             <NavLink

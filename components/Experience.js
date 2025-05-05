@@ -2,7 +2,7 @@ import { Box, Heading, Text, VStack, Link, UnorderedList, ListItem } from "@chak
 
 const Experience = () => (
   <Box>
-    <Heading as="h2" size="md" mb={4} textTransform="lowercase" fontWeight="semibold">Experience</Heading>
+    <Heading as="h2" size="lg" mb={4} textTransform="lowercase" fontWeight="semibold">Experience</Heading>
     <VStack align="start" spacing={6} textTransform="lowercase">
       <Box width="100%">
         <Link href="https://test-dreams.dreamhosters.com/" fontWeight="semibold">Community Dreams Foundation</Link>
